@@ -1,0 +1,225 @@
+import 'package:flutter/material.dart';
+import 'package:glass/glass.dart';
+
+import '../RealHome.dart';
+
+var linearGradient = LinearGradient(
+  colors: [Colors.white.withOpacity(0.2), Colors.white.withOpacity(0.4)],
+  stops: [0.0, 1.0],
+);
+
+class SliderBody extends StatefulWidget {
+  SliderBody({
+    super.key,
+  });
+
+  @override
+  State<SliderBody> createState() => _SliderBodyState();
+}
+
+class _SliderBodyState extends State<SliderBody> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            fit: BoxFit.cover,
+            alignment: Alignment.centerLeft,
+            image: NetworkImage(
+                'https://pbs.twimg.com/media/FLugHiyXwAAEtT5.jpg')),
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [Colors.black.withOpacity(0.4), Colors.transparent],
+            stops: [0.0, 0.5],
+          ),
+        ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 250,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Apiens',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline1!
+                            .copyWith(fontSize: 60, color: Colors.white),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'by Apiens',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline3!
+                                .copyWith(
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.white),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Icon(
+                            Icons.verified,
+                            color: Colors.white,
+                            size: 35,
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: linearGradient,
+                      borderRadius: BorderRadius.circular(50),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.25),
+                        )
+                      ],
+                    ),
+                    height: 60,
+                    width: 60,
+                    child: Center(
+                      child:
+                          GlasBUtton(icons: Icons.arrow_back_ios_new_rounded),
+                    ),
+                  ).asGlass(clipBorderRadius: BorderRadius.circular(50))
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              GlassCOntainerSmall(
+                huhu: linearGradient,
+              ).asGlass(clipBorderRadius: BorderRadius.circular(20)),
+              GlassCOntainerSmall(
+                huhu: linearGradient,
+              ).asGlass(clipBorderRadius: BorderRadius.circular(20)),
+              GlassCOntainerSmall(
+                huhu: LinearGradient(
+                  colors: [
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.primary
+                  ],
+                  stops: [.0, 1.0],
+                ),
+              ).asGlass(clipBorderRadius: BorderRadius.circular(20)),
+            ])
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class GlassCOntainerSmall extends StatelessWidget {
+  final huhu;
+  const GlassCOntainerSmall({
+    super.key,
+    required this.huhu,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.20,
+      width: MediaQuery.of(context).size.width * 0.30,
+      decoration: BoxDecoration(
+        gradient: huhu,
+        borderRadius: BorderRadius.circular(0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.25),
+          )
+        ],
+      ),
+      child: Center(
+          child: Padding(
+        padding: const EdgeInsets.only(top: 30.0, bottom: 30),
+        child: Column(children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                '10',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline1!
+                    .copyWith(fontSize: 40, color: Colors.white),
+              ),
+              Text(
+                'min.',
+                style: Theme.of(context).textTheme.headline1!.copyWith(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300),
+              ),
+            ],
+          ),
+          Spacer(),
+          Text(
+            'by Apiens',
+            style: Theme.of(context)
+                .textTheme
+                .headline4!
+                .copyWith(fontWeight: FontWeight.w500, color: Colors.white),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+        ]),
+      )),
+    );
+  }
+}
+
+class GlasBUtton extends StatelessWidget {
+  final icons;
+  const GlasBUtton({
+    super.key,
+    required this.icons,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: (() {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => RealHOme()),
+        );
+      }),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: linearGradient,
+          borderRadius: BorderRadius.circular(50),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.25),
+            )
+          ],
+        ),
+        height: 60,
+        width: 60,
+        child: Center(
+          child: Icon(icons, size: 25, color: Colors.white),
+        ),
+      ).asGlass(),
+    );
+  }
+}
