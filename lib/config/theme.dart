@@ -16,7 +16,7 @@ ThemeData theme() {
       onBackground: Color(0xFF2b2e4a),
       onSurface: Color(0xFF2b2e4a),
     ),
-    fontFamily: 'Gilroy',
+    fontFamily: 'Roboto',
     textTheme: const TextTheme(
       headline1: TextStyle(
         color: Color(0xFF2b2e4a),
