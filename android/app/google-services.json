@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "789400842347",
+    "project_id": "blenderlearnapp",
+    "storage_bucket": "blenderlearnapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789400842347:android:f5345c1ca0e9d99642812e",
+        "android_client_info": {
+          "package_name": "com.example.blendertut"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789400842347-fiklvu3mico8556uk031b7fmd1178hp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVopKDAgV-4nCUYhVpSqw2-j52xorIqXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789400842347-fiklvu3mico8556uk031b7fmd1178hp5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

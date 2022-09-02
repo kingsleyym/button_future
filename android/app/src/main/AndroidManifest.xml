@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.button">
+    package="com.example.blendertut">
    <application
         android:label="button_future"
         android:name="${applicationName}"
