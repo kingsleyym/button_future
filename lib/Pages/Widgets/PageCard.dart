@@ -41,7 +41,7 @@ class PageCard extends StatelessWidget {
                 stops: [0.2, 0.5],
               ),
               borderRadius: BorderRadius.circular(20)),
-          child: SafeArea(
+          child: Container(
             child: Padding(
               padding: const EdgeInsets.all(24.0),
               child: Column(

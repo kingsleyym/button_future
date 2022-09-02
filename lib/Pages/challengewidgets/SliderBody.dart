@@ -101,14 +101,14 @@ class _SliderBodyState extends State<SliderBody> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            Spacer(),
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               GlassCOntainerSmall(
                 huhu: linearGradient,
-              ).asGlass(clipBorderRadius: BorderRadius.circular(20)),
+              ).asGlass(clipBorderRadius: BorderRadius.circular(50)),
               GlassCOntainerSmall(
                 huhu: linearGradient,
-              ).asGlass(clipBorderRadius: BorderRadius.circular(20)),
+              ).asGlass(clipBorderRadius: BorderRadius.circular(50)),
               GlassCOntainerSmall(
                 huhu: LinearGradient(
                   colors: [
@@ -117,8 +117,11 @@ class _SliderBodyState extends State<SliderBody> {
                   ],
                   stops: [.0, 1.0],
                 ),
-              ).asGlass(clipBorderRadius: BorderRadius.circular(20)),
-            ])
+              ).asGlass(clipBorderRadius: BorderRadius.circular(50)),
+            ]),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.25,
+            )
           ],
         ),
       ),
@@ -136,11 +139,11 @@ class GlassCOntainerSmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.20,
-      width: MediaQuery.of(context).size.width * 0.30,
+      height: MediaQuery.of(context).size.height * 0.18,
+      width: MediaQuery.of(context).size.width * 0.25,
       decoration: BoxDecoration(
         gradient: huhu,
-        borderRadius: BorderRadius.circular(0),
+        borderRadius: BorderRadius.circular(50),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.25),

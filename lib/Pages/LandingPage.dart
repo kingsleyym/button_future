@@ -1,9 +1,8 @@
 import 'package:button_future/Pages/Widgets/NavBar.dart';
-import 'package:button_future/Pages/Widgets/PageCard.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatelessWidget {
-  List<String> countries = [
+  final List<String> countries = [
     "Tutorials",
     "Quick Tips",
     "Challenges",
@@ -17,11 +16,11 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: NavBAr(),
-      body: Container(
+      body: SizedBox(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(28.0),
+              padding: const EdgeInsets.only(left: 28, right: 28, top: 100),
               child: Row(
                 children: [
                   Text(
@@ -29,7 +28,7 @@ class LandingPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline1!.copyWith(
                         fontWeight: FontWeight.w600, color: Colors.black),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Container(
                     height: 80,
                     width: 55,
@@ -41,10 +40,10 @@ class LandingPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 40),
             CatagoryMenu(countries: countries),
             SizedBox(
-              height: 30,
+              height: 40,
             ),
             Expanded(
               child: Container(
@@ -83,15 +82,16 @@ class CatagoryMenu extends StatelessWidget {
           children: countries.map((country) {
             return Center(
                 child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(
-                country,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline3!
-                    .copyWith(fontWeight: FontWeight.w600, color: Colors.grey),
-              ),
-            ));
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: TextButton(
+                      autofocus: true,
+                      onPressed: () {},
+                      child: Text(
+                        country,
+                        style: Theme.of(context).textTheme.headline3!.copyWith(
+                            fontWeight: FontWeight.w600, color: Colors.grey),
+                      ),
+                    )));
           }).toList(),
         ),
       ),
