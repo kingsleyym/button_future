@@ -1,6 +1,7 @@
 import 'package:button_future/Presentation/SignUP/signup_page.dart';
 import 'package:button_future/Presentation/TestCardPagfe.dart';
 import 'package:button_future/Presentation/routes/router.dart';
+import 'package:button_future/firebase_options.dart';
 import 'package:button_future/injecton.dart' as di;
 import 'package:button_future/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,7 +17,7 @@ import 'injecton.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await di.init();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
     //This line is used for showing the bottom bar
