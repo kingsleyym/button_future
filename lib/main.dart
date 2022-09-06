@@ -1,28 +1,57 @@
-import 'package:button_future/Pages/RealHome.dart';
-import 'package:button_future/config/theme.dart';
+import 'package:button_future/Presentation/SignUP/signup_page.dart';
+import 'package:button_future/Presentation/TestCardPagfe.dart';
+import 'package:button_future/Presentation/routes/router.dart';
+import 'package:button_future/injecton.dart' as di;
+import 'package:button_future/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
-import 'homepage.dart';
+import 'Presentation/routes/router.gr.dart' as r;
+import 'api/Theme_service.dart';
+import 'application/auth/auth/auth_bloc.dart';
+import 'injecton.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await di.init();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
     //This line is used for showing the bottom bar
   ]);
 
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => ThemeService(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
+  final _appRouter = r.AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: theme(),
-        home: RealHOme());
+    return Consumer<ThemeService>(builder: (context, themeService, child) {
+      return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => sl<AuthBloc>()..add(AuthCheckRequestedEvent()),
+          )
+        ],
+        child: MaterialApp.router(
+          routeInformationParser: _appRouter.defaultRouteParser(),
+          routerDelegate: _appRouter.delegate(),
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode:
+              themeService.isDarkModeOn ? ThemeMode.light : ThemeMode.dark,
+        ),
+      );
+    });
   }
 }
