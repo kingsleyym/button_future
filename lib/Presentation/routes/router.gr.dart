@@ -14,11 +14,11 @@
 import 'package:auto_route/auto_route.dart' as _i7;
 import 'package:flutter/material.dart' as _i8;
 
-import '../ChallangPage/ChallengePage.dart' as _i5;
-import '../Home/LandingPage.dart' as _i4;
+import '../ChallangPage/challangepage.dart' as _i5;
+import '../landingpage/landingpage.dart' as _i4;
 import '../SignUP/signup_page.dart' as _i2;
 import '../SplashPage/splashpage.dart' as _i1;
-import '../TestCardPagfe.dart' as _i6;
+import '../test_page_card.dart' as _i6;
 import 'pageseroutes.dart' as _i3;
 
 class AppRouter extends _i7.RootStackRouter {

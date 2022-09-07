@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:glass/glass.dart';
 
-import '../../TestCardPagfe.dart';
-
 var linearGradient = LinearGradient(
   colors: [Colors.white.withOpacity(0.2), Colors.white.withOpacity(0.4)],
-  stops: [0.0, 1.0],
+  stops: const [0.0, 1.0],
 );
 
 class SliderBody extends StatefulWidget {
-  SliderBody({
+  const SliderBody({
     super.key,
   });
 
@@ -21,7 +19,7 @@ class _SliderBodyState extends State<SliderBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
             fit: BoxFit.cover,
             alignment: Alignment.centerLeft,
@@ -34,12 +32,12 @@ class _SliderBodyState extends State<SliderBody> {
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
             colors: [Colors.black.withOpacity(0.4), Colors.transparent],
-            stops: [0.0, 0.5],
+            stops: const [0.0, 0.5],
           ),
         ),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 250,
             ),
             Padding(
@@ -69,10 +67,10 @@ class _SliderBodyState extends State<SliderBody> {
                                     fontWeight: FontWeight.w700,
                                     color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.verified,
                             color: Colors.white,
                             size: 35,
@@ -93,7 +91,7 @@ class _SliderBodyState extends State<SliderBody> {
                     ),
                     height: 60,
                     width: 60,
-                    child: Center(
+                    child: const Center(
                       child:
                           GlasBUtton(icons: Icons.arrow_back_ios_new_rounded),
                     ),
@@ -101,7 +99,7 @@ class _SliderBodyState extends State<SliderBody> {
                 ],
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               GlassCOntainerSmall(
                 huhu: linearGradient,
@@ -115,7 +113,7 @@ class _SliderBodyState extends State<SliderBody> {
                     Theme.of(context).colorScheme.primary,
                     Theme.of(context).colorScheme.primary
                   ],
-                  stops: [.0, 1.0],
+                  stops: const [.0, 1.0],
                 ),
               ).asGlass(clipBorderRadius: BorderRadius.circular(50)),
             ]),
@@ -130,7 +128,7 @@ class _SliderBodyState extends State<SliderBody> {
 }
 
 class GlassCOntainerSmall extends StatelessWidget {
-  final huhu;
+  final LinearGradient huhu;
   const GlassCOntainerSmall({
     super.key,
     required this.huhu,
@@ -174,7 +172,7 @@ class GlassCOntainerSmall extends StatelessWidget {
               ),
             ],
           ),
-          Spacer(),
+          const Spacer(),
           Text(
             'by Apiens',
             style: Theme.of(context)
@@ -182,7 +180,7 @@ class GlassCOntainerSmall extends StatelessWidget {
                 .headline4!
                 .copyWith(fontWeight: FontWeight.w500, color: Colors.white),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
         ]),
@@ -192,7 +190,7 @@ class GlassCOntainerSmall extends StatelessWidget {
 }
 
 class GlasBUtton extends StatelessWidget {
-  final icons;
+  final IconData icons;
   const GlasBUtton({
     super.key,
     required this.icons,
@@ -203,7 +201,6 @@ class GlasBUtton extends StatelessWidget {
     return GestureDetector(
       onTap: (() {
         Navigator.of(context).pop();
-        ;
       }),
       child: Container(
         decoration: BoxDecoration(

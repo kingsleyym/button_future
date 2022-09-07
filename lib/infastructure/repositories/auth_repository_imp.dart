@@ -1,9 +1,10 @@
 import 'package:button_future/core/failures/auth_failures.dart';
-import 'package:button_future/domain/enitys/user.dart';
 import 'package:button_future/domain/repository/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:button_future/infastructure/models/firebase_USerMaper.dart';
+import 'package:button_future/infastructure/models/firebase_usermaper.dart';
+
+import '../../domain/enitys/auth/user.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final FirebaseAuth firebaseAuth;

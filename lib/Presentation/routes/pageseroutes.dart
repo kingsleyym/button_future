@@ -24,8 +24,8 @@ class HomePage extends StatelessWidget {
             extendBody: true,
             routes: [
               LandingPageRoute(),
-              RealHOmeRoute(),
-              ChallengePageRoute(),
+              const RealHOmeRoute(),
+              const ChallengePageRoute(),
             ],
             bottomNavigationBuilder: (_, tabsRouter) {
               return Padding(
@@ -49,19 +49,19 @@ class HomePage extends StatelessWidget {
                           Colors.black.withOpacity(0.3),
                           Colors.black.withOpacity(0.1)
                         ],
-                        stops: [0.0, 1.0],
+                        stops: const [0.0, 1.0],
                       ),
                       borderRadius: BorderRadius.circular(40)),
                   child: Padding(
-                      padding: EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: GNav(
                           selectedIndex: tabsRouter.activeIndex,
                           onTabChange: tabsRouter.setActiveIndex,
                           tabBackgroundColor:
                               Theme.of(context).colorScheme.primary,
-                          padding: EdgeInsets.all(20),
+                          padding: const EdgeInsets.all(20),
                           backgroundColor: Colors.transparent,
-                          tabs: [
+                          tabs: const [
                             GButton(
                               icon: Icons.home,
                               iconSize: 24,

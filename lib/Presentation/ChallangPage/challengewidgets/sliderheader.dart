@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'SliderBody.dart';
+import 'sliderbody.dart';
 
 class SliderHeader extends StatelessWidget {
   const SliderHeader({
@@ -15,11 +15,11 @@ class SliderHeader extends StatelessWidget {
         children: [
           Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              GlasBUtton(icons: Icons.arrow_back_ios_new_rounded),
-              SizedBox(
+              const GlasBUtton(icons: Icons.arrow_back_ios_new_rounded),
+              const SizedBox(
                 height: 10,
               ),
               Container(

@@ -1,4 +1,4 @@
-import 'package:button_future/domain/enitys/id.dart';
+import 'id.dart';
 
 class CustomUser {
   final UniqueID id;

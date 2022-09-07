@@ -1,12 +1,10 @@
-import 'package:button_future/Presentation/TestCardPagfe.dart';
-import 'package:button_future/Presentation/ChallangPage/challengewidgets/SliderHeader.dart';
+import 'package:button_future/Presentation/ChallangPage/challengewidgets/sliderheader.dart';
 import 'package:flutter/material.dart';
 import 'package:glass/glass.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
-import '../Widgets/PannelDown.dart';
-import '../Widgets/SliderKnob.dart';
-import 'challengewidgets/SliderBody.dart';
+import '../Widgets/slider_knob.dart';
+import 'challengewidgets/sliderbody.dart';
 import 'challengewidgets/header_slider.dart';
 
 class ChallengePage extends StatelessWidget {
@@ -25,7 +23,7 @@ class ChallengePage extends StatelessWidget {
             parallaxOffset: 0.09,
             renderPanelSheet: false,
             defaultPanelState: PanelState.CLOSED,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 blurRadius: 0.0,
               )
@@ -40,7 +38,7 @@ class ChallengePage extends StatelessWidget {
                     Colors.black.withOpacity(0.2),
                     Colors.white.withOpacity(0.4)
                   ],
-                  stops: [0.0, 1.0],
+                  stops: const [0.0, 1.0],
                 ),
                 borderRadius: BorderRadius.circular(30),
                 boxShadow: [
@@ -53,14 +51,14 @@ class ChallengePage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
-                  Center(child: SliderKnob()),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 30.0, vertical: 20),
-                    child: const Header_SLider(),
+                  const Center(child: SliderKnob()),
+                  const Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 30.0, vertical: 20),
+                    child: HeaderSlider(),
                   ),
                   Container(
                     height: MediaQuery.of(context).size.height * 0.45,
@@ -71,7 +69,7 @@ class ChallengePage extends StatelessWidget {
                           Colors.white.withOpacity(0.2),
                           Colors.white.withOpacity(0.4)
                         ],
-                        stops: [0.0, 1.0],
+                        stops: const [0.0, 1.0],
                       ),
                       borderRadius: BorderRadius.circular(50),
                       boxShadow: [
@@ -107,7 +105,7 @@ class ChallengePage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Text(
                           'by Apiens',
                           style: Theme.of(context)
@@ -117,13 +115,13 @@ class ChallengePage extends StatelessWidget {
                                   fontWeight: FontWeight.w500,
                                   color: Colors.white),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                       ]),
                     )),
                   )..asGlass(clipBorderRadius: BorderRadius.circular(50)),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Container(
@@ -135,7 +133,7 @@ class ChallengePage extends StatelessWidget {
                             Colors.white.withOpacity(0.3),
                             Colors.black.withOpacity(0.4),
                           ],
-                          stops: [0.0, 1],
+                          stops: const [0.0, 1],
                         ),
                         borderRadius: BorderRadius.circular(40)),
                     width: MediaQuery.of(context).size.width * 0.80,
@@ -168,13 +166,13 @@ class ChallengePage extends StatelessWidget {
                 ],
               ),
             ).asGlass(
-                clipBorderRadius: BorderRadius.only(
+                clipBorderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(50),
                     topRight: Radius.circular(50)),
                 tileMode: TileMode.decal),
-            body: SliderBody(),
+            body: const SliderBody(),
           ),
-          SliderHeader()
+          const SliderHeader()
         ]));
   }
 }

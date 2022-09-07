@@ -46,8 +46,8 @@ class ListTilee extends StatelessWidget {
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            const Padding(
+          children: const [
+            Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
                 'Trending NFT\'s',

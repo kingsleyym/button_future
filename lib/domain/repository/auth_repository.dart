@@ -1,8 +1,7 @@
-import 'package:button_future/application/auth/SignUpFormBloc/sign_up_form_bloc.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../core/failures/auth_failures.dart';
-import '../enitys/user.dart';
+import '../enitys/auth/user.dart';
 
 abstract class AuthRepository {
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(

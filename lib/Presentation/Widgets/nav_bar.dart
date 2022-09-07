@@ -1,15 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:button_future/Presentation/Home/LandingPage.dart';
-import 'package:button_future/Presentation/TestCardPagfe.dart';
 import 'package:button_future/Presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:glass/glass.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-import '../ChallangPage/ChallengePage.dart';
-
 class NavBAr extends StatelessWidget {
-  NavBAr({
+  const NavBAr({
     super.key,
   });
 
@@ -35,19 +31,18 @@ class NavBAr extends StatelessWidget {
                 Colors.black.withOpacity(0.3),
                 Colors.black.withOpacity(0.1)
               ],
-              stops: [0.0, 1.0],
+              stops: const [0.0, 1.0],
             ),
             borderRadius: BorderRadius.circular(40)),
         child: Padding(
-            padding: EdgeInsets.all(4.0),
+            padding: const EdgeInsets.all(4.0),
             child: GNav(
                 tabBackgroundColor: Theme.of(context).colorScheme.primary,
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 backgroundColor: Colors.transparent,
                 tabs: [
                   GButton(
                     onPressed: () {
-                      print("whatsss");
                       AutoRouter.of(context).replace(LandingPageRoute());
                     },
                     icon: Icons.home,
@@ -56,11 +51,11 @@ class NavBAr extends StatelessWidget {
                   GButton(
                     icon: Icons.military_tech_outlined,
                     onPressed: () {
-                      AutoRouter.of(context).replace(RealHOmeRoute());
+                      AutoRouter.of(context).replace(const RealHOmeRoute());
                     },
                   ),
-                  GButton(icon: Icons.home),
-                  GButton(icon: Icons.person_outlined),
+                  const GButton(icon: Icons.home),
+                  const GButton(icon: Icons.person_outlined),
                 ])),
       ).asGlass(clipBorderRadius: BorderRadius.circular(50)),
     );

@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:button_future/domain/repository/auth_repository.dart';
+// ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
+
+import 'package:button_future/domain/repository/auth_repository.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';

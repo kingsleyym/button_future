@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:button_future/Presentation/Home/LandingPage.dart';
-import 'package:button_future/Presentation/SignUP/Widgets/SignInButton.dart';
+import 'package:button_future/Presentation/SignUP/Widgets/signinbutton.dart';
 import 'package:button_future/Presentation/routes/router.gr.dart';
 import 'package:button_future/core/failures/auth_failures.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +12,8 @@ class SignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late String _email;
-    late String _password;
+    late String email;
+    late String password;
     final GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
     String? validateEmail(String? input) {
@@ -23,7 +22,7 @@ class SignUpForm extends StatelessWidget {
       if (input == null || input.isEmpty) {
         return "please enter email";
       } else if (RegExp(emailRegex).hasMatch(input)) {
-        _email = input;
+        email = input;
         return null;
       } else {
         return 'incalid email format';
@@ -34,7 +33,7 @@ class SignUpForm extends StatelessWidget {
       if (input == null || input.isEmpty) {
         return "please enter email";
       } else if (input.length >= 6) {
-        _password = input;
+        password = input;
         return null;
       } else {
         return 'password to short';
@@ -69,7 +68,7 @@ class SignUpForm extends StatelessWidget {
                         style: themeData.textTheme.bodyText1,
                       )));
                 }, (_) {
-                  AutoRouter.of(context).replace(HomePageRoute());
+                  AutoRouter.of(context).replace(const HomePageRoute());
                 }));
       },
       builder: (context, state) {
@@ -126,7 +125,7 @@ class SignUpForm extends StatelessWidget {
                     if (formkey.currentState!.validate()) {
                       BlocProvider.of<SignUpFormBloc>(context).add(
                           SignInWithEmailAndPasswordPressed(
-                              email: _email, password: _password));
+                              email: email, password: password));
                     } else {
                       BlocProvider.of<SignUpFormBloc>(context).add(
                           SignInWithEmailAndPasswordPressed(
@@ -149,7 +148,7 @@ class SignUpForm extends StatelessWidget {
                     if (formkey.currentState!.validate()) {
                       BlocProvider.of<SignUpFormBloc>(context).add(
                           RegisterWithEmailAndPasswordPressed(
-                              email: _email, password: _password));
+                              email: email, password: password));
                     } else {
                       BlocProvider.of<SignUpFormBloc>(context).add(
                           RegisterWithEmailAndPasswordPressed(
@@ -164,7 +163,7 @@ class SignUpForm extends StatelessWidget {
                   },
                 ),
                 if (state.isSubmitting) ...[
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                   LinearProgressIndicator(

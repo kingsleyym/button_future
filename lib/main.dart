@@ -1,6 +1,3 @@
-import 'package:button_future/Presentation/SignUP/signup_page.dart';
-import 'package:button_future/Presentation/TestCardPagfe.dart';
-import 'package:button_future/Presentation/routes/router.dart';
 import 'package:button_future/firebase_options.dart';
 import 'package:button_future/injecton.dart' as di;
 import 'package:button_future/theme.dart';
@@ -11,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 import 'Presentation/routes/router.gr.dart' as r;
-import 'api/Theme_service.dart';
+import 'api/theme_service.dart';
 import 'application/auth/auth/auth_bloc.dart';
 import 'injecton.dart';
 

@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
+// ignore: depend_on_referenced_packages
+import 'package:meta/meta.dart';
+
 import 'package:button_future/core/failures/auth_failures.dart';
 import 'package:button_future/domain/repository/auth_repository.dart';
-import 'package:dartz/dartz.dart';
-import 'package:meta/meta.dart';
 
 part 'sign_up_form_event.dart';
 part 'sign_up_form_state.dart';

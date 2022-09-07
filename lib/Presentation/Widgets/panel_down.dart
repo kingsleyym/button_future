@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:glass/glass.dart';
 
-import '../ChallangPage/ChallengePage.dart';
-import 'List_tile.dart';
-import 'NavBar.dart';
-import 'SliderKnob.dart';
+import 'list_tile.dart';
+import 'slider_knob.dart';
 
-class Pannel_down extends StatelessWidget {
-  const Pannel_down({
+class PannelDown extends StatelessWidget {
+  const PannelDown({
     super.key,
   });
 
@@ -20,7 +18,7 @@ class Pannel_down extends StatelessWidget {
             Colors.white.withOpacity(0.2),
             Colors.white.withOpacity(0.4)
           ],
-          stops: [0.0, 1.0],
+          stops: const [0.0, 1.0],
         ),
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
@@ -51,7 +49,7 @@ class Pannel_down extends StatelessWidget {
                             .headline2!
                             .copyWith(color: Colors.white.withOpacity(0.6)),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Icon(Icons.donut_large_sharp,
                           color: Colors.white.withOpacity(0.6))
                     ],
@@ -59,12 +57,12 @@ class Pannel_down extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: 400,
                 child: ListView(
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.vertical,
-                    children: [
+                    children: const [
                       ListTilee(
                         imageUrl:
                             'https://cdn.prod.www.spiegel.de/images/67473fe3-658c-4c53-81a2-42096c893d8a_w948_r1.778_fpx53_fpy50.png',

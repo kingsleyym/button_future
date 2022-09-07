@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Header_SLider extends StatelessWidget {
-  const Header_SLider({
+class HeaderSlider extends StatelessWidget {
+  const HeaderSlider({
     super.key,
   });
 
@@ -15,7 +15,7 @@ class Header_SLider extends StatelessWidget {
               Colors.white.withOpacity(0.2),
               Colors.white.withOpacity(0.4)
             ],
-            stops: [0.0, 1.0],
+            stops: const [0.0, 1.0],
           ),
           borderRadius: BorderRadius.circular(50),
           boxShadow: [
@@ -26,11 +26,11 @@ class Header_SLider extends StatelessWidget {
         ),
         height: 60,
         width: 60,
-        child: Center(
+        child: const Center(
           child: Icon(Icons.military_tech, size: 35, color: Colors.white),
         ),
       ),
-      SizedBox(
+      const SizedBox(
         width: 10,
       ),
       Column(
@@ -51,10 +51,10 @@ class Header_SLider extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline4!.copyWith(
                       fontWeight: FontWeight.w500, color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
-                Icon(
+                const Icon(
                   Icons.verified,
                   color: Colors.white,
                   size: 35,
