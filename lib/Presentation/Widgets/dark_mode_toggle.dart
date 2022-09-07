@@ -33,15 +33,15 @@ class _DarkModeToggleState extends State<DarkModeToggle>
           isPressed = !isPressed;
         });
         if (isPressed == true) {
-          _controller.animateTo(1);
+          _controller.animateTo(0.7);
         } else {
-          _controller.animateBack(0);
+          _controller.animateBack(0.1);
         }
 
         Provider.of<ThemeService>(context, listen: false).toggleTheme();
       },
       child: LottieBuilder.network(
-          height: 80,
+          height: 40,
           "https://lottie.host/9cf0f157-ad40-4d71-86b4-90803d27c65f/tIlqsw1NOx.json",
           controller: _controller,
           repeat: false,

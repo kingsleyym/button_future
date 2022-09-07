@@ -4,11 +4,13 @@ class PageCard extends StatelessWidget {
   final String image;
   final String body;
   final String title;
+  final bool resp;
   const PageCard({
     Key? key,
     required this.image,
     required this.body,
     required this.title,
+    required this.resp,
   }) : super(key: key);
 
   @override
@@ -37,35 +39,45 @@ class PageCard extends StatelessWidget {
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: [
-                  Colors.black.withOpacity(0.6),
+                  Colors.black.withOpacity(0.8),
                   Colors.black.withOpacity(0)
                 ],
-                stops: const [0.1, 0.5],
+                stops: const [0.2, 0.5],
               ),
               borderRadius: BorderRadius.circular(20)),
           child: SizedBox(
             child: Padding(
-              padding: const EdgeInsets.all(24.0),
+              padding: resp
+                  ? const EdgeInsets.all(24.0)
+                  : const EdgeInsets.all(18.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: resp
+                    ? MainAxisAlignment.end
+                    : MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    style: Theme.of(context).textTheme.headline2!.copyWith(
-                        color: Colors.white.withOpacity(0.6),
-                        fontWeight: FontWeight.w900),
-                  ),
+                  Text(title,
+                      style: resp
+                          ? Theme.of(context).textTheme.headline2!.copyWith(
+                              color: Colors.white.withOpacity(0.8),
+                              fontWeight: FontWeight.w900)
+                          : Theme.of(context).textTheme.headline2!.copyWith(
+                              color: Colors.white.withOpacity(0.8),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w900)),
                   const SizedBox(
                     height: 10,
                   ),
-                  Text(
-                    body,
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white.withOpacity(0.6)),
-                  )
+                  Text(body,
+                      style: resp
+                          ? Theme.of(context).textTheme.headline6!.copyWith(
+                              color: Colors.white.withOpacity(0.6),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14)
+                          : Theme.of(context).textTheme.headline6!.copyWith(
+                              color: Colors.white.withOpacity(0.6),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600)),
                 ],
               ),
             ),

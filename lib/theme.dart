@@ -39,17 +39,15 @@ class AppTheme {
     color: _lightTextColorPrimary,
     fontFamily: "Gilroy",
     fontSize: 20,
-    fontWeight: FontWeight.w700,
   );
 
   static const TextStyle _lightBodyText = TextStyle(
-      color: _lightTextColorPrimary,
-      fontFamily: "Roboto",
-      fontWeight: FontWeight.w600,
-      fontSize: 16);
+      color: _lightTextColorPrimary, fontFamily: "Roboto", fontSize: 16);
 
   static final TextTheme _lightTextTheme = TextTheme(
-      headline1: _lightHeadingText.copyWith(fontSize: 36),
+      headline1: _lightHeadingText.copyWith(
+        fontSize: 36,
+      ),
       headline2: _lightHeadingText.copyWith(fontSize: 24),
       headline3: _lightHeadingText.copyWith(fontSize: 22),
       headline4: _lightHeadingText.copyWith(fontSize: 20),

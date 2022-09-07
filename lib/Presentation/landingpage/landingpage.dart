@@ -24,6 +24,7 @@ class LandingPage extends StatelessWidget {
               padding: const EdgeInsets.only(
                 left: 28,
                 right: 28,
+                top: 20,
               ),
               child: Row(
                 children: [
@@ -44,13 +45,14 @@ class LandingPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 28, right: 28, top: 30),
               child: Row(
-                children: [
+                children: const [
                   Text(
                     "Explore\nCollections",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline1!
-                        .copyWith(fontSize: 36, letterSpacing: 2),
+                    style: TextStyle(
+                      fontFamily: 'Gilroy',
+                      fontSize: 36,
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
                   const Spacer(),
                 ],

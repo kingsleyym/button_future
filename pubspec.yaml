@@ -95,6 +95,8 @@ flutter:
       fonts:
         - asset: fonts/Gilroy-Regular.ttf
         - asset: fonts/Gilroy-Thin.ttf
+          weight: 100
+        - asset: fonts/Gilroy-Thin.ttf
           weight: 200
         - asset: fonts/Gilroy-Light.ttf
           weight: 300
@@ -119,7 +121,9 @@ flutter:
           weight: 800
         - asset: fonts/Gilroy-Heavy.ttf
           weight: 900
-
+        - asset: fonts/Gilroy-Heavy.ttf
+          weight: 900
+          style: italic
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

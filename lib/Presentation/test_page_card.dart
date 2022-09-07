@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:button_future/placeholder.dart';
 import 'package:flutter/material.dart';
 
 import 'Widgets/nav_bar.dart';
@@ -11,10 +12,10 @@ class RealHOme extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final wupp = WupperTal();
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: const NavBAr(),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         toolbarHeight: 90,
@@ -35,14 +36,99 @@ class RealHOme extends StatelessWidget {
           )
         ],
       ),
-      body: Container(
-        decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+      body: SingleChildScrollView(
+        child: Container(
+          decoration:
+              BoxDecoration(color: Theme.of(context).colorScheme.primary),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                clipBehavior: Clip.hardEdge,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.4),
+                        spreadRadius: 1,
+                        blurRadius: 7,
+                        offset: const Offset(2, 2),
+                      ),
+                    ],
+                    color: Colors.transparent),
+                height: size.height * 0.38,
+                child: PageView(
+                  physics: const BouncingScrollPhysics(),
+                  children: [
+                    PageCard(
+                      resp: true,
+                      title: wupp.pagetitel,
+                      body: wupp.body,
+                      image: wupp.img8,
+                    ),
+                    PageCard(
+                      resp: true,
+                      title: wupp.pagetitel,
+                      body: wupp.body,
+                      image: wupp.img5,
+                    ),
+                    PageCard(
+                      resp: true,
+                      title: wupp.pagetitel,
+                      body: wupp.body,
+                      image: wupp.img6,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                color: Colors.transparent,
+                height: 35,
+              ),
+              const SizedBox(height: 30, child: CatagoryMenu()),
+              SizedBox(height: 20),
+              NewWidget(size: size, wupp: wupp),
+              SizedBox(height: 20),
+              NewWidget(size: size, wupp: wupp),
+              SizedBox(height: 20),
+              NewWidget(size: size, wupp: wupp),
+              SizedBox(height: 20),
+              NewWidget(size: size, wupp: wupp),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class NewWidget extends StatelessWidget {
+  const NewWidget({
+    super.key,
+    required this.size,
+    required this.wupp,
+  });
+
+  final Size size;
+  final WupperTal wupp;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: size.width * 0.95,
+      decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.onPrimary,
+          borderRadius: BorderRadius.circular(20)),
+      alignment: Alignment.topCenter,
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Row(
           children: [
             Container(
               clipBehavior: Clip.hardEdge,
-              width: double.infinity,
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(20),
@@ -56,84 +142,27 @@ class RealHOme extends StatelessWidget {
                     ),
                   ],
                   color: Colors.transparent),
-              height: size.height * 0.38,
+              height: size.height * 0.20,
+              width: size.width * 0.4,
               child: PageView(
                 physics: const BouncingScrollPhysics(),
-                children: const [
-                  PageCard(
-                    title: "WAVE Plugin",
-                    body:
-                        ' Once you have your environment set up for Flutter,\n you can run the following to create a new application:',
-                    image:
-                        'https://legiit-service.s3.amazonaws.com/4572035e16c82641760668c527e095f0/35d2400ec86f3326efe204109ab10989.jpg',
-                  ),
-                  PageCard(
-                      title: "WAVE Plugin",
-                      body:
-                          ' Once you have your environment set up for Flutter,\n you can run the following to create a new application:',
-                      image:
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJgWLnC4CH_Np9fZ8N3p7hoTmWQgigpRKj1g&usqp=CAU'),
-                  PageCard(
-                    title: "WoRLDxx Plugin",
-                    body:
-                        ' Once you have your environment set up for Flutter,\n you can run the following to create a new application:',
-                    image:
-                        'https://www.fivesquid.com/pics/t2/1645891499-193904-1-1.jpg',
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              color: Colors.transparent,
-              height: 35,
-            ),
-            const SizedBox(height: 30, child: CatagoryMenu()),
-            Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Row(
                 children: [
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(20),
-                            bottomRight: Radius.circular(20)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.4),
-                            spreadRadius: 1,
-                            blurRadius: 7,
-                            offset: const Offset(2, 2),
-                          ),
-                        ],
-                        color: Colors.transparent),
-                    height: size.height * 0.20,
-                    width: size.width * 0.4,
-                    child: PageView(
-                      physics: const BouncingScrollPhysics(),
-                      children: const [
-                        PageCard(
-                          title: "WAVE Plugin",
-                          body:
-                              ' Once you have your environment set up for Flutter,',
-                          image:
-                              'https://legiit-service.s3.amazonaws.com/4572035e16c82641760668c527e095f0/35d2400ec86f3326efe204109ab10989.jpg',
-                        ),
-                        PageCard(
-                            title: "WAVE Plugin",
-                            body:
-                                ' Once you have your environment set up for Flutter,',
-                            image:
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJgWLnC4CH_Np9fZ8N3p7hoTmWQgigpRKj1g&usqp=CAU'),
-                        PageCard(
-                          title: "WoRLDxx Plugin",
-                          body:
-                              ' Once you have your environment set up for Flutter,',
-                          image:
-                              'https://www.fivesquid.com/pics/t2/1645891499-193904-1-1.jpg',
-                        ),
-                      ],
-                    ),
+                  PageCard(
+                    title: wupp.pagetitel,
+                    body: wupp.body,
+                    image: wupp.img1,
+                    resp: false,
+                  ),
+                  PageCard(
+                      resp: false,
+                      title: wupp.pagetitel,
+                      body: wupp.body,
+                      image: wupp.img2),
+                  PageCard(
+                    resp: false,
+                    title: wupp.pagetitel,
+                    body: wupp.body,
+                    image: wupp.img3,
                   ),
                 ],
               ),
