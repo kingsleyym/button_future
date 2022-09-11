@@ -2,8 +2,8 @@
 
 import 'package:button_future/placeholder.dart';
 import 'package:flutter/material.dart';
-
-import 'Widgets/nav_bar.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:glass/glass.dart';
 import 'Widgets/page_card.dart';
 import 'landingpage/widgets/categorylist.dart';
 
@@ -22,9 +22,14 @@ class RealHOme extends StatelessWidget {
         leadingWidth: 80,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: const Icon(
-          Icons.window_outlined,
-          size: 25,
+        leading: IconButton(
+          onPressed: () {
+            ZoomDrawer.of(context)!.toggle();
+          },
+          icon: const Icon(
+            Icons.window_outlined,
+            size: 25,
+          ),
         ),
         actions: const [
           Padding(
@@ -36,10 +41,48 @@ class RealHOme extends StatelessWidget {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          decoration:
-              BoxDecoration(color: Theme.of(context).colorScheme.primary),
+      body: Stack(children: [
+        Column(children: [
+          Container(
+            height: 200,
+          ),
+          Expanded(
+            child: SizedBox(
+              width: double.infinity,
+              child: Stack(
+                children: const [
+                  Positioned(
+                    top: 100,
+                    left: 90,
+                    child: BackGround(
+                      decH: 60,
+                      decW: 260,
+                      rotA: 45,
+                    ),
+                  ),
+                  Positioned(
+                      top: 100,
+                      left: 50,
+                      child: BackGround(
+                        decH: 60,
+                        decW: 60,
+                        rotA: 45,
+                      )),
+                  Positioned(
+                    top: 160,
+                    left: 110,
+                    child: BackGround(
+                      decH: 60,
+                      decW: 60,
+                      rotA: 45,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ]),
+        SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -89,19 +132,60 @@ class RealHOme extends StatelessWidget {
                 height: 35,
               ),
               const SizedBox(height: 30, child: CatagoryMenu()),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               NewWidget(size: size, wupp: wupp),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               NewWidget(size: size, wupp: wupp),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               NewWidget(size: size, wupp: wupp),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               NewWidget(size: size, wupp: wupp),
             ],
           ),
         ),
-      ),
+      ]),
     );
+  }
+}
+
+class BackGround extends StatelessWidget {
+  final double decW;
+  final double decH;
+  final int rotA;
+  const BackGround({
+    super.key,
+    required this.decW,
+    required this.decH,
+    required this.rotA,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return RotationTransition(
+        turns: AlwaysStoppedAnimation(rotA / 360),
+        child: Container(
+          decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary,
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.pink,
+                  spreadRadius: 4,
+                  blurRadius: 10,
+                ),
+                BoxShadow(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  spreadRadius: -4,
+                  blurRadius: 5,
+                )
+              ],
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                width: 4,
+                color: const Color.fromARGB(255, 255, 16, 183).withOpacity(0.7),
+              )),
+          height: decH,
+          width: decW,
+        ));
   }
 }
 
@@ -120,7 +204,7 @@ class NewWidget extends StatelessWidget {
     return Container(
       width: size.width * 0.95,
       decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.2),
           borderRadius: BorderRadius.circular(20)),
       alignment: Alignment.topCenter,
       child: Padding(
@@ -128,23 +212,16 @@ class NewWidget extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              clipBehavior: Clip.hardEdge,
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.4),
-                      spreadRadius: 1,
-                      blurRadius: 7,
-                      offset: const Offset(2, 2),
-                    ),
-                  ],
-                  color: Colors.transparent),
+              clipBehavior: Clip.antiAliasWithSaveLayer,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20)),
+              ),
               height: size.height * 0.20,
               width: size.width * 0.4,
               child: PageView(
+                clipBehavior: Clip.none,
                 physics: const BouncingScrollPhysics(),
                 children: [
                   PageCard(
@@ -167,9 +244,26 @@ class NewWidget extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(
+              height: 160,
+              width: 100,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(wupp.pagetitel),
+                  Flexible(
+                    child: Text(
+                      wupp.body,
+                      maxLines: 8,
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
-    );
+    ).asGlass(clipBorderRadius: BorderRadius.circular(20));
   }
 }

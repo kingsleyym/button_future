@@ -51,10 +51,10 @@ class LandingPage extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Gilroy',
                       fontSize: 36,
-                      fontWeight: FontWeight.w900,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const Spacer(),
+                  Spacer(),
                 ],
               ),
             ),
