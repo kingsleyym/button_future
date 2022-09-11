@@ -2,7 +2,7 @@ import 'package:button_future/core/failures/auth_failures.dart';
 import 'package:button_future/domain/repository/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:button_future/infastructure/models/firebase_usermaper.dart';
+import 'package:button_future/infastructure/extensions/firebase_user_maper.dart';
 
 import '../../domain/enitys/auth/user.dart';
 

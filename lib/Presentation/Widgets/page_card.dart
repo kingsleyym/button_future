@@ -23,9 +23,13 @@ class PageCard extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.25),
-            )
+              color: Colors.black.withOpacity(0.4),
+              spreadRadius: 1,
+              blurRadius: 7,
+              offset: const Offset(2, 2),
+            ),
           ],
+          color: Colors.transparent,
           image: DecorationImage(
               fit: BoxFit.cover,
               image: NetworkImage(
