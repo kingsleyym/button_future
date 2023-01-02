@@ -14,19 +14,30 @@ class SplashPage extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthStateAuthenticated) {
-          Future.delayed(const Duration(seconds: 15), () {});
-          context.router.replace(const HomePageRoute());
+          Future.delayed(const Duration(seconds: 1), () {
+            context.router.replace(const HomePageRoute());
+          });
         } else if (state is AuthStateUnauthenticated) {
-          Future.delayed(const Duration(seconds: 15), () {});
-          context.router.replace(const SignUpPageRoute());
+          Future.delayed(const Duration(seconds: 1), () {
+            context.router.replace(const SignUpPageRoute());
+          });
         }
       },
-      child: const Scaffold(
+      child: Scaffold(
         body: Center(
           child: FadeOutParticle(
-            disappear: true,
-            child: Text('Fade out Particle'),
-          ),
+              duration: const Duration(seconds: 1),
+              disappear: true,
+              child: Container(
+                height: 100,
+                width: MediaQuery.of(context).size.width * 0.95,
+                color: Colors.black,
+                child: Container(
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "https://cdn.shopify.com/s/files/1/2236/7041/files/HN_RE_LOGO_3_weiss_165x@2x.png?v=1626805628")))),
+              )),
         ),
       ),
     );

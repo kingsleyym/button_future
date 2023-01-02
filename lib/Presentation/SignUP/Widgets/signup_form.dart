@@ -162,6 +162,13 @@ class SignUpForm extends StatelessWidget {
                     }
                   },
                 ),
+                SignInRegisterButton(
+                  buttonText: "goolge ",
+                  callback: () {
+                    BlocProvider.of<SignUpFormBloc>(context)
+                        .add(SignInWithGoogle());
+                  },
+                ),
                 if (state.isSubmitting) ...[
                   const SizedBox(
                     height: 25,

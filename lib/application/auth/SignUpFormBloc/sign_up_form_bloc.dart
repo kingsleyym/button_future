@@ -46,5 +46,14 @@ class SignUpFormBloc extends Bloc<SignupformEvent, SignupformState> {
             authFailureOrSuccessOption: optionOf(failureOrSuccess)));
       }
     });
+
+    on<SignInWithGoogle>((event, emit) async {
+      emit(state.copyWith(isSubmitting: true, showValidationMessages: false));
+      final failureOrSuccess = await authRepository.signInWithGoogle();
+
+      emit(state.copyWith(
+          isSubmitting: false,
+          authFailureOrSuccessOption: optionOf(failureOrSuccess)));
+    });
   }
 }

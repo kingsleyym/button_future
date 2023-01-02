@@ -29,7 +29,7 @@ class ChallengePage extends StatelessWidget {
               )
             ],
             maxHeight: MediaQuery.of(context).size.height * 0.75,
-            minHeight: MediaQuery.of(context).size.height * 0.20,
+            minHeight: MediaQuery.of(context).size.height * 0.10,
             panel: Container(
               alignment: Alignment.bottomCenter,
               decoration: BoxDecoration(

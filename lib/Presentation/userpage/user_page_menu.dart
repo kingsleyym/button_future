@@ -2,12 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:button_future/Presentation/Widgets/dark_mode_toggle.dart';
 import 'package:button_future/placeholder.dart';
-import 'package:fade_out_particle/fade_out_particle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/auth/auth/auth_bloc.dart';
-import '../routes/router.gr.dart';
 
 class UserPageMenu extends StatelessWidget {
   const UserPageMenu({super.key});
@@ -25,8 +23,8 @@ class UserPageMenu extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                DarkModeToggle(),
-                Spacer(),
+                const DarkModeToggle(),
+                const Spacer(),
                 InkWell(
                   onTap: () {
                     BlocProvider.of<AuthBloc>(context).add(SignOutPressEvent());
@@ -54,7 +52,7 @@ class UserPageMenu extends StatelessWidget {
                                 Border.all(width: 2, color: Colors.deepOrange),
                             color: Colors.amber,
                             borderRadius: BorderRadius.circular(50),
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                   blurRadius: 5,
                                   spreadRadius: 0.3,
@@ -93,28 +91,28 @@ class UserPageMenu extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 80,
             ),
-            TxtButton(
+            const TxtButton(
               btnName: "settings",
             ),
-            TxtButton(
+            const TxtButton(
               btnName: "theme",
             ),
-            TxtButton(
+            const TxtButton(
               btnName: "profil settings",
             ),
-            TxtButton(
+            const TxtButton(
               btnName: "settings",
             ),
-            TxtButton(
+            const TxtButton(
               btnName: "profil settings",
             ),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ),
@@ -123,7 +121,7 @@ class UserPageMenu extends StatelessWidget {
 }
 
 class TxtButton extends StatelessWidget {
-  final btnName;
+  final String btnName;
   const TxtButton({
     super.key,
     required this.btnName,
@@ -133,7 +131,7 @@ class TxtButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         onPressed: () {
-          context.navigateNamedTo('/setting-user');
+          context.navigateNamedTo('/challenge-page');
         },
         child: Text(btnName,
             style: Theme.of(context)

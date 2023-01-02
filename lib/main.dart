@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import 'Presentation/routes/router.gr.dart' as r;
 import 'api/theme_service.dart';
 import 'application/auth/auth/auth_bloc.dart';
+import 'application/news/observe/observe_bloc.dart';
 import 'injecton.dart';
 
 void main() async {
@@ -32,12 +33,16 @@ class MyApp extends StatelessWidget {
   final _appRouter = r.AppRouter();
   @override
   Widget build(BuildContext context) {
+    final observerBloc = sl<ObserverBloc>()..add(ObserverAll());
     return Consumer<ThemeService>(builder: (context, themeService, child) {
       return MultiBlocProvider(
         providers: [
           BlocProvider(
             create: (context) => sl<AuthBloc>()..add(AuthCheckRequestedEvent()),
-          )
+          ),
+          BlocProvider(
+            create: (context) => observerBloc,
+          ),
         ],
         child: MaterialApp.router(
           routeInformationParser: _appRouter.defaultRouteParser(),
@@ -47,7 +52,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode:
-              themeService.isDarkModeOn ? ThemeMode.light : ThemeMode.dark,
+              themeService.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
         ),
       );
     });

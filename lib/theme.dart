@@ -19,7 +19,7 @@ class AppTheme {
 
   static const Color _iconColor = Colors.white;
 
-  static const Color _accentColorDark = Color.fromRGBO(74, 217, 217, 1);
+  //static const Color _accentColorDark = Color.fromRGBO(74, 217, 217, 1);
   static Color gradientColorA = const Color(0xFFFFFFFF);
   static Color gradientColorB = const Color(0xFF000000);
 
@@ -46,7 +46,7 @@ class AppTheme {
   static const TextStyle _lightBodyText = TextStyle(
       color: _lightTextColorPrimary, fontFamily: "Roboto", fontSize: 16);
 
-  static TextTheme _lightTextTheme = TextTheme(
+  static final TextTheme _lightTextTheme = TextTheme(
       headline1: _lightHeadingText.copyWith(fontSize: 36),
       headline2: _lightHeadingText.copyWith(fontSize: 24),
       headline3: _lightHeadingText.copyWith(fontSize: 22),
@@ -56,13 +56,13 @@ class AppTheme {
       bodyText1: _lightBodyText,
       bodyText2: _lightBodyText);
 
-  static TextStyle _darkThemeHeadingTextStyle =
+  static final TextStyle _darkThemeHeadingTextStyle =
       _lightHeadingText.copyWith(color: _darkTextColorPrimary);
 
-  static TextStyle _darkThemeBodyeTextStyle =
+  static final TextStyle _darkThemeBodyeTextStyle =
       _lightBodyText.copyWith(color: _darkTextColorPrimary);
 
-  static TextTheme _darkTextTheme = TextTheme(
+  static final TextTheme _darkTextTheme = TextTheme(
     headline1: _darkThemeHeadingTextStyle.copyWith(fontSize: 36),
     headline2: _darkThemeHeadingTextStyle.copyWith(fontSize: 24),
     headline3: _darkThemeHeadingTextStyle.copyWith(fontSize: 22),
@@ -99,6 +99,7 @@ class AppTheme {
           primary: _lightPrimaryColor,
           onPrimary: _lightOnPrimaryColor,
           secondary: _lightSecondaryColor,
+          tertiary: const Color.fromARGB(255, 251, 109, 0),
           primaryContainer: _lightPrimaryVariantColor),
       textTheme: _lightTextTheme);
 
@@ -112,6 +113,7 @@ class AppTheme {
       colorScheme: ColorScheme.dark(
         primary: _darkPrimaryColor,
         secondary: _darkSecondaryColor,
+        tertiary: const Color.fromARGB(255, 251, 109, 0),
         onPrimary: _darkOnPrimaryColor,
         primaryContainer: _darkPrimaryVariantColor,
       ),

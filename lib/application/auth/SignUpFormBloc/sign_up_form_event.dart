@@ -16,3 +16,5 @@ class SignInWithEmailAndPasswordPressed extends SignupformEvent {
   SignInWithEmailAndPasswordPressed(
       {required this.email, required this.password});
 }
+
+class SignInWithGoogle extends SignupformEvent {}

@@ -42,13 +42,6 @@ class NavBAr extends StatelessWidget {
                 backgroundColor: Colors.transparent,
                 tabs: [
                   GButton(
-                    onPressed: () {
-                      AutoRouter.of(context).replace(LandingPageRoute());
-                    },
-                    icon: Icons.home,
-                    iconSize: 24,
-                  ),
-                  GButton(
                     icon: Icons.military_tech_outlined,
                     onPressed: () {
                       AutoRouter.of(context).replace(const RealHOmeRoute());

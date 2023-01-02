@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
                 routes: const [
                   LandingPageRoute(),
                   RealHOmeRoute(),
-                  ChallengePageRoute(),
+                  FunctionPageRoute(),
                   UserPageRoute(),
                 ],
                 bottomNavigationBuilder: (_, tabsRouter) {

@@ -17,7 +17,7 @@ class UserPage extends StatelessWidget {
       shadowLayer2Color: theme.secondary.withRed(155).withOpacity(0.3),
       angle: 0,
       dragOffset: 0,
-      menuScreen: UserPageMenu(),
+      menuScreen: const UserPageMenu(),
       mainScreen: const UserPageMain(),
       style: DrawerStyle.defaultStyle,
     );

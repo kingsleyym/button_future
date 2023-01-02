@@ -18,7 +18,7 @@ class RealHOme extends StatelessWidget {
       extendBody: true,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        toolbarHeight: 90,
+        toolbarHeight: 30,
         leadingWidth: 80,
         backgroundColor: Colors.transparent,
         elevation: 0,
